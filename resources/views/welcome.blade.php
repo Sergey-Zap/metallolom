@@ -103,7 +103,6 @@
                 padding-left: 30px;
                 padding-right: 30px;
                 margin-left: 10px;
-                width: 30%;
                 display: flex;
                 align-items: center;
             }
@@ -297,8 +296,11 @@
                     justify-content: space-around;
                 }
                 .banner {
-                    height: 100vh;
+                    height: 70vh;
                     padding: 0 15px;
+                }
+                .banner-content div {
+                    margin-top: 30px;
                 }
                 h1 {
                     font-size: 30px;
@@ -315,11 +317,12 @@
                     padding: 12px 40px;
                 }
                 .banner-content:before {
-                    height: 100vh;
+                    height: 70vh;
                     top: unset;
                 }
                 .services {
                     height: auto;
+                    margin-top: 20px;
                 }
                 .services div a {
                     margin-bottom: 20px;
