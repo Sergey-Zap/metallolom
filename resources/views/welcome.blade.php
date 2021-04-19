@@ -13,7 +13,233 @@
         <!-- Styles -->
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <style>
+            body {
+                font-family: Roboto,  Arial, sans-serif;
+                background: #ffff00;
+            }
+            /* call batton */
+            .callback-bt {
+                background:#38a3fd;
+                border:2px solid #38a3fd;
+                border-radius:50%;
+                box-shadow:0 8px 10px rgba(56,163,253,0.3);
+                cursor:pointer;
+                height:68px;
+                text-align:center;
+                width:68px;
+                position: fixed;
+                right: 8%;
+                bottom: 18%;
+                z-index:999;
+                transition:.3s;
+                -webkit-animation:hoverWave linear 1s infinite;
+                animation:hoverWave linear 1s infinite;
+            }
+
+            .callback-bt .text-call{
+                height:68px;
+                width:68px;
+                border-radius:50%;
+                position:relative;
+                overflow:hidden;
+            }
+
+            .callback-bt .text-call span {
+                text-align: center;
+                color:#38a3fd;
+                opacity: 0;
+                font-size: 0;
+                position:absolute;
+                right: 4px;
+                top: 22px;
+                line-height: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                transition: opacity .3s linear;
+                font-family: 'montserrat', Arial, Helvetica, sans-serif;
+            }
+
+            .callback-bt .text-call:hover span {
+                opacity: 1;
+                font-size: 11px;
+            }
+            .callback-bt:hover i {
+                display:none;
+            }
+
+            .callback-bt:hover {
+                z-index:1;
+                background:#fff;
+                color:transparent;
+                transition:.3s;
+            }
+            .callback-bt:hover i {
+                color:#38a3fd;
+                font-size:40px;
+                transition:.3s;
+            }
+            .callback-bt i {
+                color:#fff;
+                font-size:34px;
+                transition:.3s;
+                line-height: 66px;transition: .5s ease-in-out;
+            }
+
+            .callback-bt i  {
+                animation: 1200ms ease 0s normal none 1 running shake;
+                animation-iteration-count: infinite;
+                -webkit-animation: 1200ms ease 0s normal none 1 running shake;
+                -webkit-animation-iteration-count: infinite;
+            }
+
+            @-webkit-keyframes hoverWave {
+                0% {
+                    box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 0 rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+                }
+                40% {
+                    box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 15px rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+                }
+                80% {
+                    box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 26.7px rgba(56,163,253,0.067)
+                }
+                100% {
+                    box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 40px rgba(56,163,253,0.0)
+                }
+            }@keyframes hoverWave {
+                 0% {
+                     box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 0 rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+                 }
+                 40% {
+                     box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 15px rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+                 }
+                 80% {
+                     box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 26.7px rgba(56,163,253,0.067)
+                 }
+                 100% {
+                     box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 40px rgba(56,163,253,0.0)
+                 }
+             }
+
+            /* animations icon */
+
+            @keyframes shake {
+                0% {
+                    transform: rotateZ(0deg);
+                    -ms-transform: rotateZ(0deg);
+                    -webkit-transform: rotateZ(0deg);
+                }
+                10% {
+                    transform: rotateZ(-30deg);
+                    -ms-transform: rotateZ(-30deg);
+                    -webkit-transform: rotateZ(-30deg);
+                }
+                20% {
+                    transform: rotateZ(15deg);
+                    -ms-transform: rotateZ(15deg);
+                    -webkit-transform: rotateZ(15deg);
+                }
+                30% {
+                    transform: rotateZ(-10deg);
+                    -ms-transform: rotateZ(-10deg);
+                    -webkit-transform: rotateZ(-10deg);
+                }
+                40% {
+                    transform: rotateZ(7.5deg);
+                    -ms-transform: rotateZ(7.5deg);
+                    -webkit-transform: rotateZ(7.5deg);
+                }
+                50% {
+                    transform: rotateZ(-6deg);
+                    -ms-transform: rotateZ(-6deg);
+                    -webkit-transform: rotateZ(-6deg);
+                }
+                60% {
+                    transform: rotateZ(5deg);
+                    -ms-transform: rotateZ(5deg);
+                    -webkit-transform: rotateZ(5deg);
+                }
+                70% {
+                    transform: rotateZ(-4.28571deg);
+                    -ms-transform: rotateZ(-4.28571deg);
+                    -webkit-transform: rotateZ(-4.28571deg);
+                }
+                80% {
+                    transform: rotateZ(3.75deg);
+                    -ms-transform: rotateZ(3.75deg);
+                    -webkit-transform: rotateZ(3.75deg);
+                }
+                90% {
+                    transform: rotateZ(-3.33333deg);
+                    -ms-transform: rotateZ(-3.33333deg);
+                    -webkit-transform: rotateZ(-3.33333deg);
+                }
+                100% {
+                    transform: rotateZ(0deg);
+                    -ms-transform: rotateZ(0deg);
+                    -webkit-transform: rotateZ(0deg);
+                }
+            }
+
+            @-webkit-keyframes shake {
+                0% {
+                    transform: rotateZ(0deg);
+                    -ms-transform: rotateZ(0deg);
+                    -webkit-transform: rotateZ(0deg);
+                }
+                10% {
+                    transform: rotateZ(-30deg);
+                    -ms-transform: rotateZ(-30deg);
+                    -webkit-transform: rotateZ(-30deg);
+                }
+                20% {
+                    transform: rotateZ(15deg);
+                    -ms-transform: rotateZ(15deg);
+                    -webkit-transform: rotateZ(15deg);
+                }
+                30% {
+                    transform: rotateZ(-10deg);
+                    -ms-transform: rotateZ(-10deg);
+                    -webkit-transform: rotateZ(-10deg);
+                }
+                40% {
+                    transform: rotateZ(7.5deg);
+                    -ms-transform: rotateZ(7.5deg);
+                    -webkit-transform: rotateZ(7.5deg);
+                }
+                50% {
+                    transform: rotateZ(-6deg);
+                    -ms-transform: rotateZ(-6deg);
+                    -webkit-transform: rotateZ(-6deg);
+                }
+                60% {
+                    transform: rotateZ(5deg);
+                    -ms-transform: rotateZ(5deg);
+                    -webkit-transform: rotateZ(5deg);
+                }
+                70% {
+                    transform: rotateZ(-4.28571deg);
+                    -ms-transform: rotateZ(-4.28571deg);
+                    -webkit-transform: rotateZ(-4.28571deg);
+                }
+                80% {
+                    transform: rotateZ(3.75deg);
+                    -ms-transform: rotateZ(3.75deg);
+                    -webkit-transform: rotateZ(3.75deg);
+                }
+                90% {
+                    transform: rotateZ(-3.33333deg);
+                    -ms-transform: rotateZ(-3.33333deg);
+                    -webkit-transform: rotateZ(-3.33333deg);
+                }
+                100% {
+                    transform: rotateZ(0deg);
+                    -ms-transform: rotateZ(0deg);
+                    -webkit-transform: rotateZ(0deg);
+                }
+            }
+            /* end call batton */
             body {
                 margin: 0;
             }
@@ -88,6 +314,10 @@
                 font-weight: 400;
                 font-family: 'Roboto',Arial,sans-serif;
                 width: 30%;
+            }
+            .nav-tab a {
+                text-decoration: none;
+                color: #FFFFFF !important;
             }
             .phone-number {
                 display: flex;
@@ -165,6 +395,10 @@
                 text-align: center;
                 width: 100%;
                 height: 100vh;
+                background: #ffff00;
+            }
+            .container {
+                background: #ffff00;
             }
             .work-with-us.services {
                 height: 50vh;
@@ -173,6 +407,7 @@
                 font-size: 42px;
                 font-weight: bold;
                 font-family: Roboto,  Arial, sans-serif;
+                margin: 30px 0;
             }
             .services-description {
                 font-size: 24px;
@@ -236,8 +471,10 @@
                 padding: 15px 40px;
                 margin-top: 30px;
             }
+            .container, .banner {
+                background: #ffff00;
+            }
             .circle {
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -251,9 +488,33 @@
                 height: 60px;
             }
             .work-with-us.services h2 {
-                font-size: 32px;
-                margin: 50px 0;
+                font-size: 42px;
+                font-family: Roboto,  Arial, sans-serif;
+                margin: 30px 0;
             }
+            .plan-work {
+                height: 50vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                padding: 50px;
+                /*margin-top: 20px;*/
+            }
+            .circle-container, .title-description-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .title-description-container {
+                margin-top: 50px;
+            }
+            /*.elem-border::before {*/
+            /*    content: "";*/
+            /*    border-top: 2px solid #ff822e;*/
+            /*    position: relative;*/
+            /*    width: 100%;*/
+            /*    top: 50px*/
+            /*}*/
             @media (max-width: 1200px) {
                 .work-with-us.services {
                     height: 70vh;
@@ -268,6 +529,18 @@
                     min-width: 320px;
                     margin-bottom: 20px;
                 }
+                .plan-work {
+                    padding: 10px;
+                }
+                .plan-work-content {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: initial;
+                    height: 100vh;
+                }
+                .circle-container, .title-description-container {
+                    flex-direction: column;
+                }
             }
             @media (max-width: 767px) {
                 .header {
@@ -281,9 +554,12 @@
                     background: #ffff00;
                     color: #222222;
                 }
-                .nav-tab span {
+                .nav-tab a {
                     font-weight: bold;
+                    font-family: Roboto,  Arial, sans-serif;
                     margin-bottom: 25px;
+                    color: #222222 !important;
+                    text-decoration: none;
                 }
                 .phone-number a {
                     margin-bottom: 20px;
@@ -304,10 +580,12 @@
                 }
                 h1 {
                     font-size: 30px;
+                    font-family: Roboto,  Arial, sans-serif;
                     line-height: 40px;
                 }
                 .banner span {
                     font-size: 20px;
+                    font-family: Roboto,  Arial, sans-serif;
                     line-height: 30px;
                 }
                 .banner-content .services-button {
@@ -322,7 +600,8 @@
                 }
                 .services {
                     height: auto;
-                    margin-top: 20px;
+                    padding-top: 20px;
+                    background: #ffff00;
                 }
                 .services div a {
                     margin-bottom: 20px;
@@ -342,8 +621,12 @@
                     height: 230px;
                     margin: 20px 0;
                 }
+                .services-description {
+                    padding: 0 15px;
+                }
                 h3 {
                     font-size: 24px;
+                    font-family: Roboto,  Arial, sans-serif;
                 }
                 .work-with-us .flex-row {
                     height: 150px;
@@ -365,9 +648,11 @@
             @media (max-width: 340px) {
                 .header, .header-title {
                     font-size: 20px;
+                    font-family: Roboto,  Arial, sans-serif;
                 }
                 .nav-tab span {
                     font-size: 15px;
+                    font-family: Roboto,  Arial, sans-serif;
                 }
                 .circle  {
                     width: 30px;
@@ -377,14 +662,22 @@
         </style>
     </head>
     <body>
+    <a href="tel:+380961517175">
+    <div type="button" class="callback-bt">
+        <div class="text-call">
+            <i class="fa fa-phone"></i>
+            <span>Заказать<br>звонок</span>
+        </div>
+    </div>
+    </a>
         <div class="first-screen">
             <section class="header">
                 <div class="header-title"><span>Запорожье Металлолом</span></div>
                 <div class="nav-tab">
-                    <span>Услуги</span>
-                    <span>Почему мы</span>
-                    <span>Цены</span>
-                    <span>Контакты</span>
+                    <a href="#our-services">Услуги</a>
+                    <a href="#why-we">Почему мы</a>
+                    <a href="#price">Цены</a>
+                    <a href="#contact">Контакты</a>
                 </div>
                 <div class="phone-number">
                     <a href="tel:+380961517175">+380961517175</a>
@@ -404,7 +697,7 @@
                 </div>
             </section>
             <section class="services">
-                <div class="services-title">
+                <div id="our-services" class="services-title">
                     <h2>Наши услуги</h2>
                 </div>
                 <div class="services-description">
@@ -417,7 +710,7 @@
                             <h3>Вывоз металлолома</h3>
                             <h4>Бесплатно</h4>
                             <span>Купим ваш металлолом.<br> Погрузка и вывоз - бесплатно.</span>
-                            <a href="#">Рассчитать стоимость</a>
+                            <a href="#price">Рассчитать стоимость</a>
                         </div>
                     </div>
                     <div>
@@ -426,13 +719,13 @@
                             <h3>Демонтаж металлолома</h3>
                             <h4>Бесплатно</h4>
                             <span>Наша бригада бесплатно произведет<br> необходимые демонтажные работы.</span>
-                            <a href="#">Рассчитать стоимость</a>
+                            <a href="#price">Рассчитать стоимость</a>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="work-with-us services">
-                <div class="services-title">
+                <div id="why-we" class="services-title">
                     <h2 class="">
                         Почему работать именно с нами?
                     </h2>
@@ -497,7 +790,7 @@
                 </div>
             </section>
 
-            <div class="container mt-5">
+            <div id="price" class="container">
                 <table class="table w-100">
                     <thead class="thead-dark">
                     <tr class="">
@@ -537,6 +830,51 @@
                 }
 
             </style>
+            <section class="plan-work work-with-us services">
+                <div class="services-title"><h2>Как мы работаем?</h2></div>
+                <div class="plan-work-content">
+                    <div class="circle-container">
+                        <div class="circle elem-border">1</div>
+                        <div class="circle elem-border">2</div>
+                        <div class="circle elem-border">3</div>
+                        <div class="circle elem-border">4</div>
+                    </div>
+                    <div class="title-description-container">
+                        <div class="title-description">
+                            <h4>Заявка</h4>
+                            <span>
+                                Заявка по телефону или через сайт.
+                            </span>
+                        </div>
+                        <div class="title-description">
+                            <h4>Расчет стоимости</h4>
+                            <span>
+                                Обговариваем условия и цену на ваш объем.
+                            </span>
+                        </div>
+                        <div class="title-description">
+                            <h4>Выполнение работ</h4>
+                            <span>
+                                Приезжают наши сотрудники и необходимая техника. Демонтируем, режем, грузим лом.
+                            </span>
+                        </div>
+                        <div class="title-description">
+                            <h4>Оплата</h4>
+                            <span>
+                                Взвешиваем лом и оплачиваем наличными или безналично.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
+    <script>
+        $(document).on('click', 'a', function (e) {
+            e.preventDefault();
+            var id  = $(this).attr('href'),
+                top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 700);
+        })
+    </script>
     </body>
 </html>
