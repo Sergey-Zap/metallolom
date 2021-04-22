@@ -63,6 +63,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        print_r('<h2>Вы не можете зарегистрироваться в данном приложении.</h2> <br><h3>Политика конфиденциальности.</h3>');
+        die();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

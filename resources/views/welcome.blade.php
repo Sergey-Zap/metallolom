@@ -515,6 +515,64 @@
             /*    width: 100%;*/
             /*    top: 50px*/
             /*}*/
+            .accordion {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .accordion .services-title {
+                text-align: center;
+                padding: 0 10px;
+            }
+            .accordion .accordion-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 20px;
+                width: 100%;
+            }
+            .accordion-sections-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 15px;
+                background-color: #ffc107;
+                width: 60%;
+            }
+            .accordion-section {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+            .accordion-section-first {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+                width: 100%;
+            }
+            .border_bottom {
+                border-bottom: 1px solid #ffffff;
+                transition:all 1s;
+            }
+            .accordion-section-second {
+                text-align: left;
+                padding: 15px 0;
+                display: none;
+            }
+            .accordion .accordion-content h4 {
+                text-align: left;
+            }
+            .circle.rotate i {
+                font-size: 30px;
+                transform: rotate(45deg);
+                transition:all 1s;
+            }
+            .circle i {
+                font-size: 30px;
+                transition:all 1s;
+            }
             @media (max-width: 1200px) {
                 .work-with-us.services {
                     height: 70vh;
@@ -643,6 +701,15 @@
                 .circle  {
                     width: 30px;
                     height: 30px;
+                }
+                .accordion-sections-content {
+                    width: 100%;
+                }
+                .accordion .services-title h2 {
+                    font-size: 38px;
+                }
+                .circle i, .circle.rotate i {
+                    font-size: 20px;
                 }
             }
             @media (max-width: 340px) {
@@ -867,6 +934,41 @@
                     </div>
                 </div>
             </section>
+            <section class="accordion">
+                <div class="services-title"><h2>Самые важные вопросы и ответы на них</h2></div>
+                <div class="accordion-content">
+                    <div class="accordion-sections-content">
+                        <div class="accordion-section">
+                            <div class="accordion-section-first border_bottom">
+                                <div class=""><h4>Какой минимальный<br> объем для вывоза?</h4></div>
+                                <div class="circle rotate"><i class="fal fa-times"></i></div>
+                            </div>
+                            <div class="accordion-section-second">100 кг.</div>
+                        </div>
+                        <div class="accordion-section">
+                            <div class="accordion-section-first border_bottom">
+                                <div class=""><h4>Возможна ли работа<br> по договору?</h4></div>
+                                <div class="circle rotate"><i class="fal fa-times"></i></div>
+                            </div>
+                            <div class="accordion-section-second">Да, мы работаем по безналичному расчету.</div>
+                        </div>
+                        <div class="accordion-section">
+                            <div class="accordion-section-first border_bottom">
+                                <div class=""><h4>Работаете ли вы по<br> Запорожской области?</h4></div>
+                                <div class="circle rotate"><i class="fal fa-times"></i></div>
+                            </div>
+                            <div class="accordion-section-second">Конечно. К вам приедут наши сотрудники и необходимая техника.</div>
+                        </div>
+                        <div class="accordion-section">
+                            <div class="accordion-section-first border_bottom">
+                                <div class=""><h4>Вы можете приехать и<br> забрать мой металлолом?</h4></div>
+                                <div class="circle rotate"><i class="fal fa-times"></i></div>
+                            </div>
+                            <div class="accordion-section-second">Да, мы приезжаем с весами, специальной техникой и грузчиками. Расчет на месте.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     <script>
         $(document).on('click', 'a', function (e) {
@@ -874,6 +976,12 @@
             var id  = $(this).attr('href'),
                 top = $(id).offset().top;
             $('body,html').animate({scrollTop: top}, 700);
+        })
+        $(document).on('click', '.accordion-section-first', function (e) {
+            $(this).parent().find('.accordion-section-second').slideToggle( "slow" );
+            $(this).parent().find('.circle').toggleClass("rotate");
+            $(this).toggleClass("border_bottom");
+            $(this).parent().toggleClass("border_bottom");
         })
     </script>
     </body>
