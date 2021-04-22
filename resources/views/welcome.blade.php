@@ -290,6 +290,9 @@
             .modal-container {
                 padding-right: 0;
             }
+            a, .accordion-section-first {
+                cursor: pointer;
+            }
             .header {
                 height: 110px;
                 background: #000;
@@ -314,6 +317,7 @@
                 font-weight: 400;
                 font-family: 'Roboto',Arial,sans-serif;
                 width: 30%;
+                z-index: 999;
             }
             .nav-tab a {
                 text-decoration: none;
@@ -365,6 +369,7 @@
             }
             .banner-content .services-button {
                 max-width: 180px;
+                z-index: 999;
             }
             .banner-content .services-button a {
                 display: block;
@@ -535,7 +540,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 0 15px;
+                padding: 0 15px 15px;
                 background-color: #ffc107;
                 width: 60%;
             }
@@ -618,6 +623,7 @@
                     margin-bottom: 25px;
                     color: #222222 !important;
                     text-decoration: none;
+                    z-index: 999;
                 }
                 .phone-number a {
                     margin-bottom: 20px;
@@ -711,6 +717,9 @@
                 .circle i, .circle.rotate i {
                     font-size: 20px;
                 }
+                #contact {
+                    height: 100vh;
+                }
             }
             @media (max-width: 340px) {
                 .header, .header-title {
@@ -759,7 +768,7 @@
                     <div>
                         <span>Любые виды <b>металлолома</b>. Самовывоз, демонтаж <br>Оплата на месте – звоните!</span>
                     </div>
-                    <div class="services-button"><a href="#">Услуги</a></div>
+                    <div class="services-button"><a href="#our-services">Услуги</a></div>
                     <div class="down-button"><i class="far fa-angle-down"></i></div>
                 </div>
             </section>
@@ -969,6 +978,37 @@
                     </div>
                 </div>
             </section>
+            <section class="services footer" id="contact">
+                <div><a href="tel:+380961517175"><i class="fas fa-phone"></i><h4>+380961517175</h4></a></div>
+                <div><a href="tel:+380663881603"><i class="fas fa-phone"></i><h4>+380663881603</h4></a></div>
+                <div class="email">
+                    <div><i class="fas fa-at"></i></div>
+                    <div><h4>ferrum.zp.lom1978@gmail.com</h4></div>
+                </div>
+                <div><a class="instagram" href="#"><i class="fab fa-instagram"></i><h4>instagram</h4></a></div>
+            </section>
+            <style>
+                .services.footer {
+                    margin-top: 50px;
+                    width: 100%;
+                    background: #222222;
+                    height: 50vh;
+                    padding: 50px;
+                    align-items: center;
+                }
+                .services.footer div a, .services.footer .email, .services.footer i, .services.footer .instagram {
+                    padding: 5px 15px;
+                    color: #ffffff;
+                    width: fit-content;
+                    cursor: pointer;
+                    text-decoration: none;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            </style>
         </div>
     <script>
         $(document).on('click', 'a', function (e) {
