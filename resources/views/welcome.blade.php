@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="description" content="Металлолом Запорожье. Прием металлолома в Запорожье по самым лучшим ценам! Дорого купим ваш металлолом!">
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="Металлолом, Запорожье, Прием, Самовывоз, демонтаж" />
         <title>Металлолом Запорожье</title>
 
         <!-- Fonts -->
