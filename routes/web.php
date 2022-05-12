@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+Route::post('/send-telegram', 'WelcomeController@sendTelegramData');
 
 Auth::routes();
 

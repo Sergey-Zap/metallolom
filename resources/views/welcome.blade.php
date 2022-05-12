@@ -580,6 +580,80 @@
                 font-size: 30px;
                 transition:all 1s;
             }
+            /*.description-and-form-block {*/
+            /*    display: flex;*/
+            /*    justify-content: space-around;*/
+            /*    align-items: center;*/
+            /*}*/
+            .form-container-border {
+    position: relative;
+    z-index: 99;
+    border: 2px solid #333333;
+    border-radius: 2px;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.form-container {
+    background-color: rgba(51, 51, 51, 0.7);
+    border-radius: 2px;
+    padding: 0 0 25px;
+}
+
+.form-container .title {
+    /*height: 20px;*/
+    padding: 25px;
+    text-align: center;
+    background: rgba(51, 51, 51, 1);
+    color: #ffe400;
+    font-size: 23px;
+}
+
+.form-container .description {
+    font-size: 17px;
+    color: #ffffff;
+    padding: 20px 60px;
+    font-weight: 600;
+}
+
+.fields-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 40px;
+}
+
+.fields-container div:first-child {
+    margin-right: 25px;
+}
+
+.fields-container input {
+    width: 280px;
+    height: 50px;
+    border-radius: 5px;
+    background: #ffffff;
+    border: #ffffff;
+    color: #959595;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.submit-button {
+    text-align: center;
+}
+
+.submit-button input {
+    color: #000;
+    font-size: 18px;
+    padding: 10px 85px;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    border: 0;
+    border-bottom: 2px solid #ffc000;
+    background: #ffe400;
+    cursor: pointer;
+}
             @media (max-width: 1200px) {
                 .work-with-us.services {
                     height: 70vh;
@@ -608,6 +682,30 @@
                 }
             }
             @media (max-width: 767px) {
+                .form-container-border {
+        width: 90vw;
+    }
+.form-container-border div {
+    margin-top: 0!important;
+}
+    .fields-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .fields-container div:first-child {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .fields-container input {
+        width: 240px;
+    }
+
+    .submit-button input {
+        padding: 10px 50px;
+    }
                 .header {
                     height: 100vh;
                 }
@@ -638,7 +736,7 @@
                     justify-content: space-around;
                 }
                 .banner {
-                    height: 70vh;
+                    height: 90vh;
                     padding: 0 15px;
                 }
                 .banner-content div {
@@ -661,8 +759,12 @@
                     padding: 12px 40px;
                 }
                 .banner-content:before {
-                    height: 70vh;
+                    height: 90vh;
                     top: unset;
+                }
+                .services-first {
+                    position: relative;
+                    top: 200px;
                 }
                 .services {
                     height: auto;
@@ -671,6 +773,9 @@
                 }
                 .services div a {
                     margin-bottom: 20px;
+                }
+                .center-service-container {
+                    margin-bottom: 170px;
                 }
                 .services-container {
                     display: flex;
@@ -767,14 +872,38 @@
                     <div>
                         <h1>Прием и вывоз металлолома <br>в Запорожье</h1>
                     </div>
+                    <div class="description-and-form-block">
+                        <!--<span>Любые виды <b>металлолома</b>. Самовывоз, демонтаж <br>Оплата на месте – звоните!</span>-->
+                        <div id="form-container-border" class="form-container-border">
+        <div class="form-container">
+            <div class="title">
+                Хотите узнать точную цену?
+            </div>
+            <div class="description">
+                Оставьте свои контакты и мы Вам перезвоним в течение 5 минут:
+            </div>
+            <form action="/send-telegram" method="POST">
+                @csrf
+                <div class="fields-container">
                     <div>
-                        <span>Любые виды <b>металлолома</b>. Самовывоз, демонтаж <br>Оплата на месте – звоните!</span>
+                        <input type="text" name="name" required="required" placeholder="Введите Ваше имя">
                     </div>
-                    <div class="services-button"><a href="#our-services">Услуги</a></div>
+                    <div>
+                        <input type="text" name="phone" required="required" placeholder="Введите Ваш телефон">
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <input type="submit" value="Узнать цену">
+                </div>
+            </form>
+        </div>
+    </div>
+                    </div>
+                    <div class="services-button" style="margin-top: 50px"><a href="#our-services">Услуги</a></div>
                     <div class="down-button"><i class="far fa-angle-down"></i></div>
                 </div>
             </section>
-            <section class="services">
+            <section class="services services-first center-service-container">
                 <div id="our-services" class="services-title">
                     <h2>Наши услуги</h2>
                 </div>
@@ -1027,4 +1156,14 @@
         })
     </script>
     </body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-201392270-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-201392270-1');
+</script>
 </html>
